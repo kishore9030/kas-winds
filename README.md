@@ -23,3 +23,50 @@ Automated incident resolution. When a massive flood of red alerts hits the syste
 * **NTA (Network Traffic Analysis):** Deep packet inspection metrics showing Top Talkers and bandwidth saturation.
 * **Wireless & Inventory:** Live tracking of Access Points, connected clients, and all hardware nodes.
 * **Connectors:** A built-in configuration UI to directly ingest data from Elasticsearch, Kafka, Splunk, Filebeat, and SNMP.
+
+## How to Start
+
+### Prerequisites
+* **Node.js** (for the frontend)
+* **Python 3.8+** (for the backend)
+
+### Backend Setup
+1. Open a terminal and navigate to the `backend` directory:
+   ```bash
+   cd backend
+   ```
+2. Create and activate a Python virtual environment:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate  # On Windows
+   # source venv/bin/activate  # On Mac/Linux
+   ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Start the FastAPI backend server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+### Frontend Setup
+1. Open a new terminal and navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install the required Node packages:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+
+## How to Use
+1. Open your browser and navigate to the local URL provided by the Vite server (typically `http://localhost:5173`).
+2. Explore the main dashboard to view the physical network state, live alerts, and topological maps.
+3. Chat with the **Omni-AI Analyst** on different pages for contextual insights, log analysis, or custom chart generation.
+4. Press `Cmd+K` (or `Ctrl+K` on Windows) to open the **Zero-Touch Intent Palette** and simulate network changes or failures without affecting production.
+5. Use the **Temporal Rewind** slider to scrub backward in time and view historical network states to perform root cause analysis on past outages.
