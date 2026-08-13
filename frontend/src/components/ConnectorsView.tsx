@@ -114,7 +114,7 @@ export default function ConnectorsView() {
               </>)}
               {newType === 'elasticsearch' && (<>
                 <div className="form-group"><label className="form-label">Elasticsearch URL</label><input className="form-input" value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="https://es-node:9200"/></div>
-                <div className="form-group"><label className="form-label">Index Pattern</label><input className="form-input" defaultValue="elmwinds-logs-*"/></div>
+                <div className="form-group"><label className="form-label">Index Pattern</label><input className="form-input" defaultValue="kaswinds-logs-*"/></div>
                 <div className="form-group"><label className="form-label">API Key / Token</label><input className="form-input" type="password"/></div>
                 <div className="form-group"><label className="form-label">TLS Verify</label><select className="form-input form-select"><option>Yes</option><option>No (self-signed)</option></select></div>
               </>)}
@@ -124,7 +124,7 @@ export default function ConnectorsView() {
               </>)}
               {newType === 'kafka' && (<>
                 <div className="form-group"><label className="form-label">Bootstrap Servers</label><input className="form-input" value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="kafka1:9092,kafka2:9092"/></div>
-                <div className="form-group"><label className="form-label">Topic</label><input className="form-input" defaultValue="elmwinds-events"/></div>
+                <div className="form-group"><label className="form-label">Topic</label><input className="form-input" defaultValue="kaswinds-events"/></div>
               </>)}
               {newType === 'splunk' && (<>
                 <div className="form-group"><label className="form-label">HEC Endpoint</label><input className="form-input" value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="https://splunk:8088"/></div>
@@ -143,7 +143,7 @@ export default function ConnectorsView() {
               </>)}
               {newType === 'filebeat' && (<>
                 <div className="form-group"><label className="form-label">Output Host</label><input className="form-input" value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="logstash.local:5044"/></div>
-                <div className="form-group"><label className="form-label">Log Paths</label><input className="form-input" placeholder="/var/log/elmwinds/*.log"/></div>
+                <div className="form-group"><label className="form-label">Log Paths</label><input className="form-input" placeholder="/var/log/kaswinds/*.log"/></div>
               </>)}
               {newType === 'snmp_fwd' && (<>
                 <div className="form-group"><label className="form-label">Destination Host:Port</label><input className="form-input" value={newUrl} onChange={e => setNewUrl(e.target.value)} placeholder="nms.company.com:162"/></div>

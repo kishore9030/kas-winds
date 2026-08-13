@@ -40,7 +40,7 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
     <div className="login-page">
       <div className="login-card">
         <Activity size={40} color="var(--c-accent)" />
-        <h2>ELM Winds</h2>
+        <h2>KAS WINDS</h2>
         <p>Enterprise Network Performance Monitor</p>
         
         {error && <div style={{background:'rgba(255,0,0,0.1)', color:'var(--c-red)', padding:'8px', borderRadius:'4px', marginBottom:'12px', fontSize:'12px'}}>{error}</div>}

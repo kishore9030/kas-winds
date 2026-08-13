@@ -1,4 +1,4 @@
-// Sample data templates for ELM Winds
+// Sample data templates for KAS WINDS
 export const sampleNodes = [
   { id: 1, hostname: 'CORE-RTR-01', ip: '10.10.0.1', vendor: 'Cisco', model: 'ISR4451', status: 'up', cpu: 42, mem: 68, uptime: '142d 8h', snmpVer: 'v3', location: 'DC-1 Rack A3' },
   { id: 2, hostname: 'CORE-RTR-02', ip: '10.10.0.2', vendor: 'Cisco', model: 'ISR4451', status: 'up', cpu: 38, mem: 55, uptime: '142d 8h', snmpVer: 'v3', location: 'DC-1 Rack A4' },

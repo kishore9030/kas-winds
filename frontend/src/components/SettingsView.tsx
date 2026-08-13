@@ -54,7 +54,7 @@ function SNMPTab() {
 
   React.useEffect(() => {
     const fetchProfiles = async () => {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/snmp_profiles', { headers: { 'Authorization': `Bearer ${token}` }});
       if(res.ok) setProfiles(await res.json());
       setLoading(false);
@@ -131,7 +131,7 @@ function DiscoveryTab() {
 
   React.useEffect(() => {
     const fetchRanges = async () => {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/discovery_ranges', { headers: { 'Authorization': `Bearer ${token}` }});
       if(res.ok) setRanges(await res.json());
       setLoading(false);
@@ -195,7 +195,7 @@ function ReceiversTab() {
         <div className="card-body">
           <div className="form-group"><label className="form-label">UDP Port</label><input className="form-input" type="number" defaultValue={162}/></div>
           <div className="form-group"><label className="form-label">Community Filter</label><input className="form-input" defaultValue="public"/></div>
-          <div className="form-group"><label className="form-label">MIB Path</label><input className="form-input" defaultValue="/opt/elmwinds/mibs"/></div>
+          <div className="form-group"><label className="form-label">MIB Path</label><input className="form-input" defaultValue="/opt/kaswinds/mibs"/></div>
           <div className="config-row"><span className="config-key">Status</span><span style={{color:'var(--c-green)',fontWeight:600}}>● Listening</span></div>
         </div>
       </div>
@@ -224,7 +224,7 @@ function ADTab() {
         <div className="card-body">
           <div className="form-group"><label className="form-label">Server URL</label><input className="form-input" placeholder="ldap://dc01.company.local:389"/></div>
           <div className="form-group"><label className="form-label">Base DN</label><input className="form-input" placeholder="DC=company,DC=local"/></div>
-          <div className="form-group"><label className="form-label">Bind DN (Service Account)</label><input className="form-input" placeholder="CN=svc_elmwinds,OU=ServiceAccounts,DC=company,DC=local"/></div>
+          <div className="form-group"><label className="form-label">Bind DN (Service Account)</label><input className="form-input" placeholder="CN=svc_kaswinds,OU=ServiceAccounts,DC=company,DC=local"/></div>
           <div className="form-group"><label className="form-label">Bind Password</label><input className="form-input" type="password" placeholder="••••••"/></div>
           <div className="form-group"><label className="form-label">User Search Filter</label><input className="form-input" defaultValue="(sAMAccountName={username})"/></div>
           <div className="form-group"><label className="form-label">Group Search Filter</label><input className="form-input" defaultValue="(member={dn})"/></div>
@@ -253,7 +253,7 @@ function RBACTab() {
 
   React.useEffect(() => {
     const fetchRoles = async () => {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/roles', { headers: { 'Authorization': `Bearer ${token}` }});
       if(res.ok) setRoles(await res.json());
       setLoading(false);
@@ -435,7 +435,7 @@ else:
 
   const handleTestQuery = async () => {
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/alerts/test_query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -451,7 +451,7 @@ else:
   const handleTestWebhook = async () => {
     try {
       const mockLog = testLogs.length > 0 ? testLogs[0] : { source: 'TEST-NODE', severity: 'critical', facility: 'SYS', msg: 'Mock test log', enriched: {} };
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/alerts/test_webhook', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -471,7 +471,7 @@ else:
   const handleSavePolicy = async () => {
     if (!query) { alert("Need a query."); return; }
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/alerts/policies', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -588,7 +588,7 @@ function ConnectorsTab() {
 
   const fetchConnectors = async () => {
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/connectors', { headers: { 'Authorization': `Bearer ${token}` }});
       const data = await res.json();
       setConnectors(data || []);
@@ -602,7 +602,7 @@ function ConnectorsTab() {
   const handleSave = async () => {
     if (!newName) return alert("Name required");
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/connectors', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -622,7 +622,7 @@ function ConnectorsTab() {
 
   const handleDelete = async (id: number) => {
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       await fetch(`http://localhost:8000/api/connectors/${id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
       fetchConnectors();
     } catch (e) {
@@ -700,7 +700,7 @@ function LogPipelinesTab() {
 
   const fetchPipelines = async () => {
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/pipelines', { headers: { 'Authorization': `Bearer ${token}` }});
       const data = await res.json();
       setPipelines(data || []);
@@ -733,7 +733,7 @@ function LogPipelinesTab() {
   const handleSave = async () => {
     if (!newName) return alert("Name required");
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/pipelines', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -753,7 +753,7 @@ function LogPipelinesTab() {
 
   const handleDelete = async (id: number) => {
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       await fetch(`http://localhost:8000/api/pipelines/${id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
       fetchPipelines();
     } catch (e) {

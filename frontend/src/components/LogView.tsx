@@ -88,7 +88,7 @@ export default function LogView({ logs }: { logs: any[] }) {
     if (!rawInjectText.trim()) return;
     setIsInjecting(true);
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       // If we are completely offline and playing with mock data, just add to local state
       if (!token) {
         alert('You are in offline mode. Connect the Postgres backend to test the AI Auto-Decoder API!');
@@ -142,7 +142,7 @@ export default function LogView({ logs }: { logs: any[] }) {
     
     setIsSavingAlert(true);
     try {
-      const token = localStorage.getItem('elm_token');
+      const token = localStorage.getItem('kas_token');
       const res = await fetch('http://localhost:8000/api/alerts/policies', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },

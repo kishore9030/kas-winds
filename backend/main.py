@@ -12,7 +12,7 @@ from . import models, database, auth, poller
 
 models.Base.metadata.create_all(bind=database.engine)
 
-app = FastAPI(title="ELM Winds Network Monitor API")
+app = FastAPI(title="KAS WINDS Network Monitor API")
 
 app.add_middleware(
     CORSMiddleware,
