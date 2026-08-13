@@ -65,8 +65,18 @@ Automated incident resolution. When a massive flood of red alerts hits the syste
    ```
 
 ## How to Use
+
+### Frontend Dashboard
 1. Open your browser and navigate to the local URL provided by the Vite server (typically `http://localhost:5173`).
 2. Explore the main dashboard to view the physical network state, live alerts, and topological maps.
 3. Chat with the **Omni-AI Analyst** on different pages for contextual insights, log analysis, or custom chart generation.
 4. Press `Cmd+K` (or `Ctrl+K` on Windows) to open the **Zero-Touch Intent Palette** and simulate network changes or failures without affecting production.
 5. Use the **Temporal Rewind** slider to scrub backward in time and view historical network states to perform root cause analysis on past outages.
+
+### Backend API & Polling
+1. **Interactive API Docs:** With the FastAPI server running, open your browser to `http://localhost:8000/docs` to access the interactive Swagger UI. Here you can explore and test API endpoints for intents, node telemetry, and log retrieval.
+2. **Network Poller:** The backend includes an active network polling script (`poller.py`) using ICMP and SNMP. To manually trigger a device polling cycle and update database statuses, run:
+   ```bash
+   cd backend
+   python -m poller
+   ```
